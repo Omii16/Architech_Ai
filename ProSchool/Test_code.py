@@ -7,20 +7,32 @@ from Object.HomePage import PracticePath
 
 class TestCodes(Base):
 
-    def test_practice(self):
+    def test_login_process(self):
         obj = PracticePath(self.driver)
         obj.login().click()
         obj.ChoosePortal().click()
         obj.StudentEmail().send_keys("omiarch16@gmail.com")
         obj.StudentPass().send_keys("Proschool@16")
         obj.Final_login().click()
-        time.sleep(10)
+        self.wait()
+
+    def test_Math_lesson1(self):
+        obj = PracticePath(self.driver)
         obj.SearchBtn().click()
         obj.Math_click().click()
         obj.SelLesson1().click()
-        obj.IntroMath().click()
-        obj.Pract_Mathpb().click()
+        self.Dropdown_up()
         obj.Dwnicon().click()
-        obj.Vdo_Btn().click()
+        self.wait()
         obj.Back_Btn().click()
+
+    def test_Math_lesson2(self):
+        obj = PracticePath(self.driver)
+        obj.SearchBtn().click()
+        obj.Math_click().click()
         obj.SelLesson2().click()
+        self.Dropdown_up()
+        obj.Dwnicon().click()
+        self.wait()
+        obj.Home_page().click()
+        self.driver.quit()

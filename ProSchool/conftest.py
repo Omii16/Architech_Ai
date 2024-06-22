@@ -6,10 +6,10 @@ from selenium.webdriver.common.by import By
 
 
 @pytest.fixture(scope="class")
-def login_setup(request):
-    service_obj = Service("C:\chrome_driver\chromedriver")
+def Browser_Invoke(request):
+    service_obj = Service("C:\\chrome_driver\\chromedriver")
     driver = webdriver.Chrome(service=service_obj)
-    driver.implicitly_wait(2)
+    driver.implicitly_wait(10)
     request.cls.driver = driver
     driver.get("https://proschool.ai/")
     driver.maximize_window()
